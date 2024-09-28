@@ -42,5 +42,4 @@ public class SupplierController {
         return  ResponseEntity.noContent().build();
     }
 
-
 }
