@@ -12,13 +12,13 @@ public class SwaggerConfig {
     public OpenAPI springShopOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("SpringBoot API")
-                        .description("Spring Boot Swagger Example")
+                        .title("Sistema de Inventario Farmacéutico API")
+                        .description("SISTEMA DE INVENTARIO FARMACÉUTICO")
                         .version("v0.0.1")
                         .license(new License().name("Apache 2.0")
                                 .url("http://springdoc.org")))
                 .externalDocs(new ExternalDocumentation()
-                        .description("SpringBoot Swager Documentation")
+                        .description("Endpoints Swagger Documentation")
                         .url("https://springshop.wiki.github.org/docs"));
     }
 }
