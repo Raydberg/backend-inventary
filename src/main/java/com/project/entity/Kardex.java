@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Cascade;
 
 import java.time.LocalDate;
 
@@ -33,12 +34,10 @@ public class Kardex {
     @NotNull
     private String descripcion;
 
-    @ManyToOne
-    @JoinColumn(name = "supplier_id", nullable = false)
+    @ManyToOne(cascade = CascadeType.ALL)
     private Supplier supplier;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @ManyToOne(cascade = CascadeType.ALL)
     private User user;
 
 
