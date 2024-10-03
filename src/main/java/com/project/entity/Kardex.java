@@ -14,11 +14,12 @@ import java.time.LocalDate;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
 @Table(name = "kardex")
 public class Kardex {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     @NotNull
     private LocalDate fechaTransaccion;
     @NotNull
@@ -28,7 +29,7 @@ public class Kardex {
     @NotNull
     private String tipoTransaccion;
     @NotNull
-    private int cantidad;
+    private Integer cantidad;
     @NotNull
     private String descripcion;
 
