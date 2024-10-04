@@ -17,6 +17,8 @@ import java.util.List;
 public class App {
 
     public static void main(String[] args) {
+        SpringApplication application = new SpringApplication(App.class);
+        application.setAdditionalProfiles("DemoJasperReportApplication");
         ApplicationContext context = SpringApplication.run(App.class, args);
         SupplierRepository supplierRepo = context.getBean(SupplierRepository.class);
         CategoryRepository categoryRepo = context.getBean(CategoryRepository.class);
