@@ -37,21 +37,5 @@ public class KardexService {
         repository.deleteById(id);
     }
 
-    public byte[] exportPdf() {
-        try {
-            return ReportGeneratedKardex.exportToPdf(repository.findAll());
-        } catch (JRException | FileNotFoundException e) {
-            // Manejo de excepciones (log o lanzar una RuntimeException)
-            throw new RuntimeException("Error al exportar a PDF", e);
-        }
-    }
 
-    public byte[] exportXls() {
-        try {
-            return ReportGeneratedKardex.exportToXls(repository.findAll());
-        } catch (JRException | FileNotFoundException e) {
-            // Manejo de excepciones (log o lanzar una RuntimeException)
-            throw new RuntimeException("Error al exportar a XLS", e);
-        }
-    }
 }
