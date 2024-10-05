@@ -1,7 +1,6 @@
 package com.project.service;
 
 
-import com.project.Util.ReportGeneratedKardex;
 import com.project.entity.Kardex;
 import com.project.repository.KardexRepository;
 import org.springframework.beans.factory.annotation.Autowired;
