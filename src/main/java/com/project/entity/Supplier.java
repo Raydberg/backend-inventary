@@ -1,5 +1,6 @@
 package com.project.entity;
 
+import com.project.enums.STATUS;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -27,6 +28,8 @@ public class Supplier {
     @NotNull
     @Column(unique = true)
     private String phone;
+    @Enumerated(EnumType.STRING)
+    private STATUS status;
 
 
 }

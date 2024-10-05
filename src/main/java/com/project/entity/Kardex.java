@@ -1,5 +1,6 @@
 package com.project.entity;
 
+import com.project.enums.KARDEX_TRANSACTION;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jdk.jfr.Enabled;
@@ -28,17 +29,19 @@ public class Kardex {
     @NotNull
     private String producto;
     @NotNull
-    private String tipoTransaccion;
+    @Enumerated(EnumType.STRING)
+    private KARDEX_TRANSACTION tipoTransaccion;
     @NotNull
     private Integer cantidad;
     @NotNull
     private String descripcion;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
+    @JoinColumn(name = "supplier_id", nullable = false)
     private Supplier supplier;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
-
 
 }

@@ -1,5 +1,7 @@
 package com.project.entity;
 
+import com.project.enums.Roles;
+import com.project.enums.STATUS;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -18,4 +20,6 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Roles roles;
     private String phone;
+    @Enumerated(EnumType.STRING)
+    private STATUS status;
 }

@@ -1,5 +1,6 @@
 package com.project.entity;
 
+import com.project.enums.STATUS;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -24,5 +25,7 @@ public class Category {
     private String description;
     @NotNull
     private Boolean isActive;
+    @Enumerated(EnumType.STRING)
+    private STATUS status;
 
 }
