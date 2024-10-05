@@ -4,10 +4,7 @@ import com.project.entity.*;
 import com.project.enums.KARDEX_TRANSACTION;
 import com.project.enums.Roles;
 import com.project.enums.STATUS;
-import com.project.repository.CategoryRepository;
-import com.project.repository.KardexRepository;
-import com.project.repository.SupplierRepository;
-import com.project.repository.UserRepository;
+import com.project.repository.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -26,6 +23,7 @@ public class App {
         CategoryRepository categoryRepo = context.getBean(CategoryRepository.class);
         UserRepository userRepo = context.getBean(UserRepository.class);
         KardexRepository kardexRepo = context.getBean(KardexRepository.class);
+        ProductRepository productRepo = context.getBean(ProductRepository.class);
 
         List<Supplier> suppliers = List.of(
                 new Supplier(null, "Supplier1", "supplier1@gmail", true, "15478936", STATUS.ACTIVO),
@@ -56,24 +54,39 @@ public class App {
                 new User(null, "User5", "6878667", "user5@gmail.com", Roles.ADMIN, "123123", STATUS.ACTIVO)
         );
         userRepo.saveAll(users);
+        /**
+         * CREATE PRODUCTS PRUEBA
+         */
 
-        // Fetch suppliers from the database to ensure they are managed by the current session
+        Category category_product_1 = categoryRepo.findById(categories.get(1).getId()).orElseThrow();
+
+        List<Product> products = List.of(
+                new Product(null, "Product1", "codigo", category_product_1, "Description", 23.4, 12, "img-1", STATUS.ACTIVO)
+        );
+        productRepo.saveAll(products);
+
+
         Supplier supplier_kardex_1 = supplierRepo.findById(suppliers.get(0).getId()).orElseThrow();
         Supplier supplier_kardex_2 = supplierRepo.findById(suppliers.get(1).getId()).orElseThrow();
         Supplier supplier_kardex_3 = supplierRepo.findById(suppliers.get(2).getId()).orElseThrow();
 
-        // Fetch users from the database to ensure they are managed by the current session
         User user_kardex_1 = userRepo.findById(users.get(0).getId()).orElseThrow();
         User user_kardex_2 = userRepo.findById(users.get(1).getId()).orElseThrow();
         User user_kardex_3 = userRepo.findById(users.get(2).getId()).orElseThrow();
 
+        Product product_kardex_1 = productRepo.findById(products.get(0).getId()).orElseThrow();
+
         // Add test data to Kardex
         List<Kardex> kardexes = List.of(
-                new Kardex(null, LocalDate.now(), LocalDate.now(), "producto1", KARDEX_TRANSACTION.ENTRADA, 23, "descripcion1",
-                        supplier_kardex_1, user_kardex_1),
-                new Kardex(null, LocalDate.now(), LocalDate.now().plusDays(30), "producto2", KARDEX_TRANSACTION.CADUCIDAD, 10, "descripcion2", supplier_kardex_2, user_kardex_2),
-                new Kardex(null, LocalDate.now(), LocalDate.now().plusMonths(2), "producto3", KARDEX_TRANSACTION.SALIDA, 50, "descripcion3", supplier_kardex_3, user_kardex_3)
+                new Kardex(null, LocalDate.now(), LocalDate.now(), KARDEX_TRANSACTION.ENTRADA, 23, "descripcion1",
+                        supplier_kardex_1, user_kardex_1, product_kardex_1),
+                new Kardex(null, LocalDate.now(), LocalDate.now().plusDays(30),
+                        KARDEX_TRANSACTION.CADUCIDAD, 10, "descripcion2", supplier_kardex_2, user_kardex_2, product_kardex_1),
+                new Kardex(null, LocalDate.now(), LocalDate.now().plusMonths(2),
+                        KARDEX_TRANSACTION.SALIDA, 50, "descripcion3", supplier_kardex_3, user_kardex_3, product_kardex_1)
         );
         kardexRepo.saveAll(kardexes);
+
+
     }
 }

@@ -20,14 +20,12 @@ import java.time.LocalDate;
 @Table(name = "kardex")
 public class Kardex {
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
     private LocalDate dateOperation;
     @NotNull
     private LocalDate expirationDate;
-    @NotNull
-    private String product;
     @NotNull
     @Enumerated(EnumType.STRING)
     private KARDEX_TRANSACTION tipoTransacction;
@@ -39,9 +37,12 @@ public class Kardex {
     @ManyToOne
     @JoinColumn(name = "supplier_id", nullable = false)
     private Supplier supplier;
-
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
+    @ManyToOne
+    @JoinColumn(name = "product_id", nullable = false)
+    private Product product;
+
 
 }

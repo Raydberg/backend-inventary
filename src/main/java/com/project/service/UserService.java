@@ -17,22 +17,26 @@ public class UserService {
         this.repository = repository;
     }
 
-    public List<User> findAllUsers(){
-       return  repository.findAll();
-   }
-   public Optional<User> findOneById(Long id){
-       return repository.findById(id);
-   }
-  public User create(User user){
-       return repository.save(user);
-  }
-  public User update(Long id,User user){
-       user.setId(id);
-       return repository.save(user);
-  }
-  public void delete(Long id){
-       repository.deleteById(id);
-  }
+    public List<User> findAllUsers() {
+        return repository.findAll();
+    }
+
+    public Optional<User> findOneById(Long id) {
+        return repository.findById(id);
+    }
+
+    public User create(User user) {
+        return repository.save(user);
+    }
+
+    public User update(Long id, User user) {
+        user.setId(id);
+        return repository.save(user);
+    }
+
+    public void delete(Long id) {
+        repository.deleteById(id);
+    }
 
 
 }
