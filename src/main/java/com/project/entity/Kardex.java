@@ -23,18 +23,18 @@ public class Kardex {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
-    private LocalDate fechaTransaccion;
+    private LocalDate dateOperation;
     @NotNull
-    private LocalDate fechaVencimiento;
+    private LocalDate expirationDate;
     @NotNull
-    private String producto;
+    private String product;
     @NotNull
     @Enumerated(EnumType.STRING)
-    private KARDEX_TRANSACTION tipoTransaccion;
+    private KARDEX_TRANSACTION tipoTransacction;
     @NotNull
-    private Integer cantidad;
+    private Integer count;
     @NotNull
-    private String descripcion;
+    private String description;
 
     @ManyToOne
     @JoinColumn(name = "supplier_id", nullable = false)
