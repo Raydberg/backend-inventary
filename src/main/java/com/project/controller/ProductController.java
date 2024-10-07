@@ -58,7 +58,7 @@ public class ProductController {
         String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
         product.setPhotos(fileName);
 
-        // Convert category name to Category object
+
         Optional<Category> category = categoryService.findOneById(categoryId);
         product.setCategory(category.orElseThrow(() -> new RuntimeException("Category not found")));
 
@@ -66,6 +66,31 @@ public class ProductController {
         String uploadDir = "product-photos/" + savedProduct.getId();
         FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
         return savedProduct;
+    }
+
+    @PutMapping("/products/{id}")
+    public Product updateProduct(@PathVariable Long id,
+                                 @ModelAttribute("product") Product product,
+                                 @RequestParam("image") MultipartFile multipartFile,
+                                 @RequestParam("categoryId") Long categoryId) throws IOException {
+        Product existingProduct = productService.getProductById(id);
+        if (existingProduct == null) {
+            throw new RuntimeException("Product not found");
+        }
+
+        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+        product.setPhotos(fileName);
+
+
+
+        Optional<Category> category = categoryService.findOneById(categoryId);
+        product.setCategory(category.orElseThrow(() -> new RuntimeException("Category not found")));
+
+        product.setId(id);
+        Product updatedProduct = productService.saveProduct(product);
+        String uploadDir = "product-photos/" + updatedProduct.getId();
+        FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+        return updatedProduct;
     }
 
     @GetMapping("/showFormForUpdate/{id}")
