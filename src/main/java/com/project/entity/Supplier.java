@@ -17,19 +17,17 @@ public class Supplier {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
-    @Column(unique = true)
+    @Column
     private String name;
     @NotNull
-    @Column(unique = true)
+    @Column
     private String email;
     @NotNull
     @Column(name = "is_active")
     private Boolean isActive;
     @NotNull
-    @Column(unique = true)
+    @Column
     private String phone;
-    @Enumerated(EnumType.STRING)
-    private STATUS status;
-
+    private String dni;
 
 }

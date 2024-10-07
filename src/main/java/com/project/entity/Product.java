@@ -5,9 +5,9 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Data
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
 @Table(name = "product")
 public class Product {
     @Id
@@ -17,15 +17,15 @@ public class Product {
     private String nameProduct;
     private String code;
     @ManyToOne
-    @JoinColumn(name = "category_id",nullable = false)
+    @JoinColumn(nullable = false)
     private Category category;
     private String description;
     private Double price;
     private Integer units;
-    @Column(nullable = true, length = 64)
+    @Column(nullable = true,length = 255)
     private String photos;
-    @Enumerated(EnumType.STRING)
-    private STATUS status;
+    @Column(name = "is_active")
+    private Boolean isActive;
     @Transient
     public String getPhotosImagePath() {
         if (photos == null) return null;

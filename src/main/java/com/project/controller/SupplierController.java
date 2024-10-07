@@ -31,15 +31,17 @@ public class SupplierController {
         Supplier createdSupplier = service.create(supplier);
         return ResponseEntity.ok(createdSupplier);
     }
+
     @PutMapping("/suppliers/{id}")
-    public ResponseEntity<Supplier> update(@PathVariable Long id,@RequestBody Supplier supplier){
-        Supplier updateSupplier = service.update(id,supplier);
+    public ResponseEntity<Supplier> update(@PathVariable Long id, @RequestBody Supplier supplier) {
+        Supplier updateSupplier = service.update(id, supplier);
         return ResponseEntity.ok(updateSupplier);
     }
+
     @DeleteMapping("/suppliers/{id}")
-    public ResponseEntity<Supplier> delete(@PathVariable Long id){
+    public ResponseEntity<Supplier> delete(@PathVariable Long id) {
         service.delete(id);
-        return  ResponseEntity.noContent().build();
+        return ResponseEntity.noContent().build();
     }
 
 }

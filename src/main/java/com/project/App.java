@@ -3,7 +3,6 @@ package com.project;
 import com.project.entity.*;
 import com.project.enums.KARDEX_TRANSACTION;
 import com.project.enums.Roles;
-import com.project.enums.STATUS;
 import com.project.repository.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -25,32 +24,32 @@ public class App {
         ProductRepository productRepo = context.getBean(ProductRepository.class);
 
         List<Supplier> suppliers = List.of(
-                new Supplier(null, "Supplier1", "supplier1@gmail", true, "15478936", STATUS.ACTIVO),
-                new Supplier(null, "Supplier2", "supplier2@gmail", false, "1247896", STATUS.ACTIVO),
-                new Supplier(null, "Supplier3", "supplier3@gmail", false, "126985", STATUS.ACTIVO),
-                new Supplier(null, "Supplier4", "supplier4@gmail", false, "748596", STATUS.ACTIVO),
-                new Supplier(null, "Supplier5", "supplier5@gmail", false, "1478592", STATUS.ACTIVO)
+                new Supplier(null, "Supplier1", "supplier1@gmail", true, "15478936", "74526"),
+                new Supplier(null, "Supplier2", "supplier2@gmail", false, "1247896", "4125963"),
+                new Supplier(null, "Supplier3", "supplier3@gmail", false, "126985", "415263"),
+                new Supplier(null, "Supplier4", "supplier4@gmail", false, "748596", "1025312"),
+                new Supplier(null, "Supplier5", "supplier5@gmail", false, "1478592", "4178596")
         );
         supplierRepo.saveAll(suppliers);
 
         List<Category> categories = List.of(
-                new Category(null, "Categoria1", "Buen estado", true, STATUS.ACTIVO),
-                new Category(null, "Categoria2", "Buen estado", false, STATUS.ACTIVO),
-                new Category(null, "Categoria3", "Buen estado", true, STATUS.ACTIVO),
-                new Category(null, "Categoria4", "Buen estado", false, STATUS.ACTIVO),
-                new Category(null, "Categoria5", "Buen estado", true, STATUS.ACTIVO),
-                new Category(null, "Categoria6", "Buen estado", false, STATUS.ACTIVO),
-                new Category(null, "Categoria7", "Buen estado", false, STATUS.ACTIVO),
-                new Category(null, "Categoria8", "Buen estado", true, STATUS.ACTIVO)
+                new Category(null, "Categoria1", "Buen estado", true),
+                new Category(null, "Categoria2", "Buen estado", false),
+                new Category(null, "Categoria3", "Buen estado", true),
+                new Category(null, "Categoria4", "Buen estado", false),
+                new Category(null, "Categoria5", "Buen estado", true),
+                new Category(null, "Categoria6", "Buen estado", false),
+                new Category(null, "Categoria7", "Buen estado", false),
+                new Category(null, "Categoria8", "Buen estado", true)
         );
         categoryRepo.saveAll(categories);
 
         List<User> users = List.of(
-                new User(null, "User1", "7485961", "user1@gmail.com", Roles.ADMIN, "12334", STATUS.ACTIVO),
-                new User(null, "User2", "345345", "user2@gmail.com", Roles.EMPLOYEE, "65443", STATUS.ACTIVO),
-                new User(null, "User3", "7234234", "user3@gmail.com", Roles.ADMIN, "56757", STATUS.ACTIVO),
-                new User(null, "User4", "4564564", "user4@gmail.com", Roles.EMPLOYEE, "678678", STATUS.ACTIVO),
-                new User(null, "User5", "6878667", "user5@gmail.com", Roles.ADMIN, "123123", STATUS.ACTIVO)
+                new User(null, "User1", "7485961", "user1@gmail.com",  "12334", true),
+                new User(null, "User2", "345345", "user2@gmail.com",  "65443", true),
+                new User(null, "User3", "7234234", "user3@gmail.com",  "56757", false),
+                new User(null, "User4", "4564564", "user4@gmail.com",  "678678", true),
+                new User(null, "User5", "6878667", "user5@gmail.com",  "123123", true)
         );
         userRepo.saveAll(users);
         /**
@@ -58,9 +57,9 @@ public class App {
          */
 
         Category category_product_1 = categoryRepo.findById(categories.get(1).getId()).orElseThrow();
-
+        System.out.println(category_product_1);
         List<Product> products = List.of(
-                new Product(null, "Product1", "codigo", category_product_1, "Description", 23.4, 12, "img-1", STATUS.ACTIVO)
+                new Product(null, "Product1", "codigo", category_product_1, "Description", 23.4, 12, "image1.webp", true)
         );
         productRepo.saveAll(products);
 

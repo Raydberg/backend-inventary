@@ -19,13 +19,11 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
-    @Column(unique = true)
+    @Column
     private String name;
     @NotNull
     private String description;
     @NotNull
     private Boolean isActive;
-    @Enumerated(EnumType.STRING)
-    private STATUS status;
 
 }
