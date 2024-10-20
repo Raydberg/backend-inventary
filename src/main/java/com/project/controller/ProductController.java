@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -77,11 +80,17 @@ public class ProductController {
         if (existingProduct == null) {
             throw new RuntimeException("Product not found");
         }
+        //Obtener la ruta
+        String oldImagePath = "product-photos/" + existingProduct.getId() + "/" + existingProduct.getPhotos();
+        //Eliminar imagen anterior
+        Path oldImage = Paths.get(oldImagePath);
+        if (Files.exists(oldImage)) {
+            Files.delete(oldImage);
+        }
 
+        // Guardar la nueva imagen
         String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
         product.setPhotos(fileName);
-
-
 
         Optional<Category> category = categoryService.findOneById(categoryId);
         product.setCategory(category.orElseThrow(() -> new RuntimeException("Category not found")));
