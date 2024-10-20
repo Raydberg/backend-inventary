@@ -2,7 +2,7 @@ package com.project;
 
 import com.project.entity.*;
 import com.project.enums.KARDEX_TRANSACTION;
-import com.project.enums.Roles;
+import com.project.enums.Role;
 import com.project.repository.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -45,11 +45,11 @@ public class App {
         categoryRepo.saveAll(categories);
 
         List<User> users = List.of(
-                new User(null, "User1", "7485961", "user1@gmail.com",  "12334", true),
-                new User(null, "User2", "345345", "user2@gmail.com",  "65443", true),
-                new User(null, "User3", "7234234", "user3@gmail.com",  "56757", false),
-                new User(null, "User4", "4564564", "user4@gmail.com",  "678678", true),
-                new User(null, "User5", "6878667", "user5@gmail.com",  "123123", true)
+                new User(null, "User1", "7485961", "user1@gmail.com", Role.USER , "12334", true,"password1"),
+                new User(null, "User2", "345345", "user2@gmail.com", Role.USER,  "65443", true,"password2"),
+                new User(null, "User3", "7234234", "user3@gmail.com", Role.USER, "56757", false,"password3"),
+                new User(null, "User4", "4564564", "user4@gmail.com",  Role.USER,"678678", true,"password4"),
+                new User(null, "User5", "6878667", "user5@gmail.com", Role.USER,  "123123", true,"password4")
         );
         userRepo.saveAll(users);
         /**
