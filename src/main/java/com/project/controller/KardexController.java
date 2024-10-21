@@ -2,8 +2,11 @@ package com.project.controller;
 
 import com.project.entity.Kardex;
 import com.project.service.KardexService;
+import com.project.service.ServiceReport;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -16,6 +19,8 @@ import java.util.Optional;
 public class KardexController {
     @Autowired
     private KardexService service;
+    @Autowired
+    private ServiceReport serviceReport;
 
     @GetMapping("/kardex")
     public List<Kardex> findAllKardex() {
@@ -44,5 +49,13 @@ public class KardexController {
     public ResponseEntity<Kardex> deleteKardex(@PathVariable Long id) {
         service.delete(id);
         return ResponseEntity.noContent().build();
+    }
+    @GetMapping("/kardex/report")
+    public ResponseEntity<byte[]> getReport() throws Exception {
+        byte[] report = serviceReport.exportReport();
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=kardex.xls")
+                .contentType(MediaType.APPLICATION_OCTET_STREAM)
+                .body(report);
     }
 }
