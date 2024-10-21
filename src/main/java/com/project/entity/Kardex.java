@@ -33,6 +33,8 @@ public class Kardex {
     private Integer count;
     @NotNull
     private String description;
+    @NotNull
+    private String productName;
 
     @ManyToOne
     @JoinColumn(name = "supplier_id", nullable = false)
@@ -40,9 +42,4 @@ public class Kardex {
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
-    @ManyToOne
-    @JoinColumn(name = "product_id", nullable = false)
-    private Product product;
-
-
 }

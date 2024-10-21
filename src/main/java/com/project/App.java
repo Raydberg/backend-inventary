@@ -2,7 +2,6 @@ package com.project;
 
 import com.project.entity.*;
 import com.project.enums.KARDEX_TRANSACTION;
-import com.project.enums.Roles;
 import com.project.repository.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -23,68 +22,86 @@ public class App {
         KardexRepository kardexRepo = context.getBean(KardexRepository.class);
         ProductRepository productRepo = context.getBean(ProductRepository.class);
 
-        List<Supplier> suppliers = List.of(
-                new Supplier(null, "Supplier1", "supplier1@gmail", true, "15478936", "74526"),
-                new Supplier(null, "Supplier2", "supplier2@gmail", false, "1247896", "4125963"),
-                new Supplier(null, "Supplier3", "supplier3@gmail", false, "126985", "415263"),
-                new Supplier(null, "Supplier4", "supplier4@gmail", false, "748596", "1025312"),
-                new Supplier(null, "Supplier5", "supplier5@gmail", false, "1478592", "4178596")
-        );
-        supplierRepo.saveAll(suppliers);
+        if (supplierRepo.count() == 0) {
+            List<Supplier> suppliers = List.of(
+                    new Supplier(null, "Jose Miguel", "MiguelJose@gmail.com", true, "923953799", "74894280"),
+                    new Supplier(null, "Carlos Ruiz", "carlos.ruiz@example.com", false, "993456789", "64899280"),
+                    new Supplier(null, "Sofia Martinez", "sofia.martinez@example.com", true, "983756789", "54898280"),
+                    new Supplier(null, "Andres Ortiz", "andres.ortiz@example.com", true, "973656789", "74894280"),
+                    new Supplier(null, "Isabel Romero", "isabel.romero@example.com", false, "953356789", "74853280")
+            );
+            supplierRepo.saveAll(suppliers);
+        }
 
-        List<Category> categories = List.of(
-                new Category(null, "Categoria1", "Buen estado", true),
-                new Category(null, "Categoria2", "Buen estado", false),
-                new Category(null, "Categoria3", "Buen estado", true),
-                new Category(null, "Categoria4", "Buen estado", false),
-                new Category(null, "Categoria5", "Buen estado", true),
-                new Category(null, "Categoria6", "Buen estado", false),
-                new Category(null, "Categoria7", "Buen estado", false),
-                new Category(null, "Categoria8", "Buen estado", true)
-        );
-        categoryRepo.saveAll(categories);
+        if (categoryRepo.count() == 0) {
+            List<Category> categories = List.of(
+                    new Category(null, "Analgesicos", "Buen estado", true),
+                    new Category(null, "Antibioticos", "Buen estado", false),
+                    new Category(null, "Preservativos", "Buen estado", true),
+                    new Category(null, "Laxantes", "Buen estado", false),
+                    new Category(null, "Lubricantes", "Buen estado", true),
+                    new Category(null, "Antipireticos", "Buen estado", false),
+                    new Category(null, "Antiinflamatorios", "Buen estado", false),
+                    new Category(null, "Diureticos", "Buen estado", true)
+            );
+            categoryRepo.saveAll(categories);
+        }
 
-        List<User> users = List.of(
-                new User(null, "User1", "7485961", "user1@gmail.com",  "12334", true),
-                new User(null, "User2", "345345", "user2@gmail.com",  "65443", true),
-                new User(null, "User3", "7234234", "user3@gmail.com",  "56757", false),
-                new User(null, "User4", "4564564", "user4@gmail.com",  "678678", true),
-                new User(null, "User5", "6878667", "user5@gmail.com",  "123123", true)
-        );
-        userRepo.saveAll(users);
-        /**
-         * CREATE PRODUCTS PRUEBA
-         */
+        if (userRepo.count() == 0) {
+            List<User> users = List.of(
+                    new User(null, "Jhon Rodriguez Quezada", "75894980", "I202314115@cibertec.edu.pe", "986310261", true),
+                    new User(null, "Roger Concepción León", "74834230", "I202314538@cibertec.edu.pe", "978318805", true),
+                    new User(null, "Raydberg Gabriel Chuquival Gil", "79824880", "I202317109@cibertec.edu.pe",
+                            "923456789",
+                            false),
+                    new User(null, "Maria Fernanda Rojas", "54894580", "mariaFr@gmail.com", "923456789", true),
+                    new User(null, "Ana Belen Rosaura", "64894200", "BRosauraAna@gmail.com", "923456789", true)
+            );
+            userRepo.saveAll(users);
+        }
 
-        Category category_product_1 = categoryRepo.findById(categories.get(1).getId()).orElseThrow();
-        System.out.println(category_product_1);
+        Category category_product_1 = categoryRepo.findById(1L).orElseThrow();
+        Category category_product_2 = categoryRepo.findById(2L).orElseThrow();
+        Category category_product_3 = categoryRepo.findById(3L).orElseThrow();
+        Category category_product_4 = categoryRepo.findById(4L).orElseThrow();
+        Category category_product_5 = categoryRepo.findById(5L).orElseThrow();
+
         List<Product> products = List.of(
-                new Product(null, "Product1", "codigo", category_product_1, "Description", 23.4, 12, "image1.webp", true)
+                new Product(null, "Paracetamol 500mg", "PRD001", category_product_1, "Analgesico y antipiretico", 5.99, 12
+                        , "image1.webp", true),
+                new Product(null, "Ibuprofeno 400mg", "PRD002", category_product_2, "Antiinflamatorio no " +
+                        "esteroideo", 23.4, 50, "image2.jpg", true),
+                new Product(null, "Amoxicilina 500mg", "PRD003", category_product_3, "Antibiotico de amplio " +
+                        "espectro", 23.4, 5, "image3.png", true),
+                new Product(null, "Durex Lubricante", "PRD004", category_product_4, "Lubricante íntimo a base de " +
+                        "agua", 23.4, 36, "image4.jpg", true),
+                new Product(null, "K-Y Gel", "PRD005", category_product_5, "Lubricante íntimo a base de gel",
+                        23.4, 50, "image5.jpg", true)
         );
         productRepo.saveAll(products);
 
+        Supplier supplier_kardex_1 = supplierRepo.findById(1L).orElseThrow(() -> new RuntimeException("Supplier not found"));
 
-        Supplier supplier_kardex_1 = supplierRepo.findById(suppliers.get(0).getId()).orElseThrow();
-        Supplier supplier_kardex_2 = supplierRepo.findById(suppliers.get(1).getId()).orElseThrow();
-        Supplier supplier_kardex_3 = supplierRepo.findById(suppliers.get(2).getId()).orElseThrow();
+        Supplier supplier_kardex_2 = supplierRepo.findById(2L).orElseThrow();
+        Supplier supplier_kardex_3 = supplierRepo.findById(3L).orElseThrow();
 
-        User user_kardex_1 = userRepo.findById(users.get(0).getId()).orElseThrow();
-        User user_kardex_2 = userRepo.findById(users.get(1).getId()).orElseThrow();
-        User user_kardex_3 = userRepo.findById(users.get(2).getId()).orElseThrow();
+        User user_kardex_1 = userRepo.findById(1L).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+        User user_kardex_2 = userRepo.findById(2L).orElseThrow();
+        User user_kardex_3 = userRepo.findById(3L).orElseThrow();
 
-        Product product_kardex_1 = productRepo.findById(products.get(0).getId()).orElseThrow();
+        Product product_kardex_1 = productRepo.findById(1L).orElseThrow();
+        Product product_kardex_2 = productRepo.findById(2L).orElseThrow();
+        Product product_kardex_3 = productRepo.findById(3L).orElseThrow();
 
-        // Add test data to Kardex
         List<Kardex> kardexes = List.of(
-                new Kardex(null, LocalDate.now(), LocalDate.now(), KARDEX_TRANSACTION.ENTRADA, 23, "descripcion1",
-                        supplier_kardex_1, user_kardex_1, product_kardex_1),
-                new Kardex(null, LocalDate.now(), LocalDate.now().plusDays(30),
-                        KARDEX_TRANSACTION.CADUCIDAD, 10, "descripcion2", supplier_kardex_2, user_kardex_2, product_kardex_1),
-                new Kardex(null, LocalDate.now(), LocalDate.now().plusMonths(2),
-                        KARDEX_TRANSACTION.SALIDA, 50, "descripcion3", supplier_kardex_3, user_kardex_3, product_kardex_1)
+                new Kardex(null, LocalDate.now(), LocalDate.now(), KARDEX_TRANSACTION.ENTRADA, 23, "Descripcion1",
+                        product_kardex_1.getNameProduct(), supplier_kardex_1, user_kardex_1),
+                new Kardex(null, LocalDate.now(), LocalDate.now(), KARDEX_TRANSACTION.ENTRADA, 23, "Descripcion2",
+                        product_kardex_2.getNameProduct(), supplier_kardex_2, user_kardex_2),
+                new Kardex(null, LocalDate.now(), LocalDate.now(), KARDEX_TRANSACTION.ENTRADA, 23, "Descripcion3",
+                        product_kardex_3.getNameProduct(), supplier_kardex_3, user_kardex_3)
         );
         kardexRepo.saveAll(kardexes);
-
 
     }
 }
