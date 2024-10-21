@@ -22,4 +22,7 @@ public class User {
     private String phone;
     @Column(name = "is_active")
     private Boolean isActive;
+    public String getUserAsString() {
+        return name;
+    }
 }
