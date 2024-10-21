@@ -42,4 +42,14 @@ public class Kardex {
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
+
+    public String getTipoTransacctionAsString() {
+        return tipoTransacction.toString();
+    }
+    public String getSupplierNameAsString() {
+        return supplier.getNameAsString();
+    }
+    public String getUserAsString() {
+        return user.getUserAsString();
+    }
 }

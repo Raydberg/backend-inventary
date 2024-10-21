@@ -29,5 +29,7 @@ public class Supplier {
     @Column
     private String phone;
     private String dni;
-
+    public String getNameAsString() {
+        return name;
+    }
 }
