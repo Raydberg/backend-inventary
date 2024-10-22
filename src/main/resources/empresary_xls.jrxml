@@ -13,13 +13,13 @@
     <title>
         <band height="40">
             <frame>
-                <reportElement mode="Opaque" x="-20" y="-20" width="595" height="50" backcolor="#8A1C48" uuid="25fef76e-caa9-470c-8255-3aa2b60f3e81"/>
+                <reportElement mode="Opaque" x="-20" y="-20" width="595" height="50" backcolor="#03A9F4" uuid="25fef76e-caa9-470c-8255-3aa2b60f3e81"/>
                 <staticText>
                     <reportElement x="20" y="10" width="555" height="30" forecolor="#FFFFFF" uuid="eceb496a-d5d0-4b4f-a3bb-1403ee25e2a6"/>
                     <textElement textAlignment="Center">
                         <font size="20" isBold="true"/>
                     </textElement>
-                    <text><![CDATA[Empresary]]></text>
+                    <text><![CDATA[Reporte Kardex]]></text>
                 </staticText>
             </frame>
         </band>
@@ -27,56 +27,56 @@
     <columnHeader>
         <band height="40">
             <textField>
-                <reportElement x="0" y="10" width="100" height="30" forecolor="#000000" backcolor="#8A1C48" uuid="4d7eaf59-7b8a-4d6b-9a97-5a6c5b8a874f"/>
+                <reportElement x="0" y="10" width="100" height="30" forecolor="#000000" backcolor="#03A9F4" uuid="4d7eaf59-7b8a-4d6b-9a97-5a6c5b8a874f"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle">
                     <font fontName="SansSerif" size="12" isBold="true"/>
                 </textElement>
                 <textFieldExpression><![CDATA["Fecha.O"]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="100" y="10" width="100" height="30" forecolor="#000000" backcolor="#8A1C48" uuid="6b9b8b8e-731a-4f96-988d-8307a029fcb2"/>
+                <reportElement x="100" y="10" width="100" height="30" forecolor="#000000" backcolor="#03A9F4" uuid="6b9b8b8e-731a-4f96-988d-8307a029fcb2"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle">
                     <font fontName="SansSerif" size="12" isBold="true"/>
                 </textElement>
                 <textFieldExpression><![CDATA["Producto"]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="200" y="10" width="120" height="30" forecolor="#000000" backcolor="#8A1C48" uuid="be2b5b29-f456-4e83-b93e-0a657f91d8d5"/>
+                <reportElement x="200" y="10" width="120" height="30" forecolor="#000000" backcolor="#03A9F4" uuid="be2b5b29-f456-4e83-b93e-0a657f91d8d5"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle">
                     <font fontName="SansSerif" size="12" isBold="true"/>
                 </textElement>
                 <textFieldExpression><![CDATA["Tipo Transacción"]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="320" y="10" width="80" height="30" forecolor="#000000" backcolor="#8A1C48" uuid="7c3f8973-d6b1-4b4e-9f7d-2e13b926db91"/>
+                <reportElement x="320" y="10" width="80" height="30" forecolor="#000000" backcolor="#03A9F4" uuid="7c3f8973-d6b1-4b4e-9f7d-2e13b926db91"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle">
                     <font fontName="SansSerif" size="12" isBold="true"/>
                 </textElement>
                 <textFieldExpression><![CDATA["Cantidad"]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="400" y="10" width="100" height="30" forecolor="#000000" backcolor="#8A1C48" uuid="7c3f8973-d6b1-4b4e-9f7d-2e13b926db91"/>
+                <reportElement x="400" y="10" width="100" height="30" forecolor="#000000" backcolor="#03A9F4" uuid="7c3f8973-d6b1-4b4e-9f7d-2e13b926db91"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle">
                     <font fontName="SansSerif" size="12" isBold="true"/>
                 </textElement>
                 <textFieldExpression><![CDATA["Descripción"]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="500" y="10" width="100" height="30" forecolor="#000000" backcolor="#8A1C48" uuid="7c3f8973-d6b1-4b4e-9f7d-2e13b926db91"/>
+                <reportElement x="500" y="10" width="100" height="30" forecolor="#000000" backcolor="#03A9F4" uuid="7c3f8973-d6b1-4b4e-9f7d-2e13b926db91"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle">
                     <font fontName="SansSerif" size="12" isBold="true"/>
                 </textElement>
                 <textFieldExpression><![CDATA["Proveedor"]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="600" y="10" width="100" height="30" forecolor="#000000" backcolor="#8A1C48" uuid="7c3f8973-d6b1-4b4e-9f7d-2e13b926db91"/>
+                <reportElement x="600" y="10" width="100" height="30" forecolor="#000000" backcolor="#03A9F4" uuid="7c3f8973-d6b1-4b4e-9f7d-2e13b926db91"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle">
                     <font fontName="SansSerif" size="12" isBold="true"/>
                 </textElement>
                 <textFieldExpression><![CDATA["Usuario"]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="700" y="10" width="100" height="30" forecolor="#000000" backcolor="#8A1C48" uuid="7c3f8973-d6b1-4b4e-9f7d-2e13b926db91"/>
+                <reportElement x="700" y="10" width="100" height="30" forecolor="#000000" backcolor="#03A9F4" uuid="7c3f8973-d6b1-4b4e-9f7d-2e13b926db91"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle">
                     <font fontName="SansSerif" size="12" isBold="true"/>
                 </textElement>
@@ -87,54 +87,48 @@
     <detail>
         <band height="30">
             <textField>
-                <reportElement x="0" y="0" width="100" height="30" uuid="1392e65b-3bc9-44f6-a86f-e5683e0d7d27"/>
+                <reportElement x="0" y="0" width="100" height="30" backcolor="#E3F2FD" uuid="1392e65b-3bc9-44f6-a86f-e5683e0d7d27"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{dateOperation}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="100" y="0" width="100" height="30" uuid="5a7b8487-7b47-44a9-96c2-1c6f0bca9b2b"/>
+                <reportElement x="100" y="0" width="100" height="30" backcolor="#E3F2FD" uuid="5a7b8487-7b47-44a9-96c2-1c6f0bca9b2b"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{productName}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="200" y="0" width="120" height="30" uuid="8e1c3a17-f35b-4a7e-baf4-4cc859c3662f"/>
+                <reportElement x="200" y="0" width="120" height="30" backcolor="#E3F2FD" uuid="8e1c3a17-f35b-4a7e-baf4-4cc859c3662f"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{tipoTransacctionAsString}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="320" y="0" width="80" height="30" uuid="a9f6d23b-4977-46b1-b02e-08ea7d0d39cc"/>
+                <reportElement x="320" y="0" width="80" height="30" backcolor="#E3F2FD" uuid="f3f16e47-20da-4a02-bc9d-fbd76cd17e1c"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{count}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="400" y="0" width="100" height="30" uuid="a9f6d23b-4977-46b1-b02e-08ea7d0d39cc"/>
+                <reportElement x="400" y="0" width="100" height="30" backcolor="#E3F2FD" uuid="1b872878-e0ae-4db3-b9d7-e0df60d7e23f"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="500" y="0" width="100" height="30" uuid="a9f6d23b-4977-46b1-b02e-08ea7d0d39cc"/>
+                <reportElement x="500" y="0" width="100" height="30" backcolor="#E3F2FD" uuid="4a71e30f-d605-4387-b403-4ab8f1f12e1f"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{supplierNameAsString}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="600" y="0" width="100" height="30" uuid="a9f6d23b-4977-46b1-b02e-08ea7d0d39cc"/>
+                <reportElement x="600" y="0" width="100" height="30" backcolor="#E3F2FD" uuid="ad22602e-0499-48b0-9d7e-fc55a12ee4de"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{userAsString}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="700" y="0" width="100" height="30" uuid="a9f6d23b-4977-46b1-b02e-08ea7d0d39cc"/>
+                <reportElement x="700" y="0" width="100" height="30" backcolor="#E3F2FD" uuid="8be7c65f-b225-4da9-8349-b5ca64e7b1cb"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{expirationDate}]]></textFieldExpression>
             </textField>
         </band>
     </detail>
     <summary>
-        <band height="50">
-            <staticText>
-                <reportElement x="0" y="0" width="100" height="30" uuid="a9f6d23b-4977-46b1-b02e-08ea7d0d39cc"/>
-                <textElement textAlignment="Center"/>
-                <text><![CDATA[Fin del Informe]]></text>
-            </staticText>
-        </band>
+        <band height="20"/>
     </summary>
 </jasperReport>
