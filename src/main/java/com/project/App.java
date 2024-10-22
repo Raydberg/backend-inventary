@@ -59,49 +59,50 @@ public class App {
             );
             userRepo.saveAll(users);
         }
+        if (productRepo.count() == 0) {
+            Category category_product_1 = categoryRepo.findById(1L).orElseThrow();
+            Category category_product_2 = categoryRepo.findById(2L).orElseThrow();
+            Category category_product_3 = categoryRepo.findById(3L).orElseThrow();
+            Category category_product_4 = categoryRepo.findById(4L).orElseThrow();
+            Category category_product_5 = categoryRepo.findById(5L).orElseThrow();
 
-        Category category_product_1 = categoryRepo.findById(1L).orElseThrow();
-        Category category_product_2 = categoryRepo.findById(2L).orElseThrow();
-        Category category_product_3 = categoryRepo.findById(3L).orElseThrow();
-        Category category_product_4 = categoryRepo.findById(4L).orElseThrow();
-        Category category_product_5 = categoryRepo.findById(5L).orElseThrow();
+            List<Product> products = List.of(
+                    new Product(null, "Paracetamol 500mg", "PRD001", category_product_1, "Analgesico y antipiretico", 5.99, 12
+                            , "image1.webp", true),
+                    new Product(null, "Ibuprofeno 400mg", "PRD002", category_product_2, "Antiinflamatorio no " +
+                            "esteroideo", 23.4, 50, "image2.jpg", true),
+                    new Product(null, "Amoxicilina 500mg", "PRD003", category_product_3, "Antibiotico de amplio " +
+                            "espectro", 23.4, 5, "image3.png", true),
+                    new Product(null, "Durex Lubricante", "PRD004", category_product_4, "Lubricante íntimo a base de " +
+                            "agua", 23.4, 36, "image4.jpg", true),
+                    new Product(null, "K-Y Gel", "PRD005", category_product_5, "Lubricante íntimo a base de gel",
+                            23.4, 50, "image5.jpg", true)
+            );
+            productRepo.saveAll(products);
+        }
+        if (kardexRepo.count() == 0) {
+            Supplier supplier_kardex_1 = supplierRepo.findById(1L).orElseThrow(() -> new RuntimeException("Supplier not found"));
 
-        List<Product> products = List.of(
-                new Product(null, "Paracetamol 500mg", "PRD001", category_product_1, "Analgesico y antipiretico", 5.99, 12
-                        , "image1.webp", true),
-                new Product(null, "Ibuprofeno 400mg", "PRD002", category_product_2, "Antiinflamatorio no " +
-                        "esteroideo", 23.4, 50, "image2.jpg", true),
-                new Product(null, "Amoxicilina 500mg", "PRD003", category_product_3, "Antibiotico de amplio " +
-                        "espectro", 23.4, 5, "image3.png", true),
-                new Product(null, "Durex Lubricante", "PRD004", category_product_4, "Lubricante íntimo a base de " +
-                        "agua", 23.4, 36, "image4.jpg", true),
-                new Product(null, "K-Y Gel", "PRD005", category_product_5, "Lubricante íntimo a base de gel",
-                        23.4, 50, "image5.jpg", true)
-        );
-        productRepo.saveAll(products);
+            Supplier supplier_kardex_2 = supplierRepo.findById(2L).orElseThrow();
+            Supplier supplier_kardex_3 = supplierRepo.findById(3L).orElseThrow();
 
-        Supplier supplier_kardex_1 = supplierRepo.findById(1L).orElseThrow(() -> new RuntimeException("Supplier not found"));
+            User user_kardex_1 = userRepo.findById(1L).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+            User user_kardex_2 = userRepo.findById(2L).orElseThrow();
+            User user_kardex_3 = userRepo.findById(3L).orElseThrow();
 
-        Supplier supplier_kardex_2 = supplierRepo.findById(2L).orElseThrow();
-        Supplier supplier_kardex_3 = supplierRepo.findById(3L).orElseThrow();
+            Product product_kardex_1 = productRepo.findById(1L).orElseThrow();
+            Product product_kardex_2 = productRepo.findById(2L).orElseThrow();
+            Product product_kardex_3 = productRepo.findById(3L).orElseThrow();
 
-        User user_kardex_1 = userRepo.findById(1L).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
-        User user_kardex_2 = userRepo.findById(2L).orElseThrow();
-        User user_kardex_3 = userRepo.findById(3L).orElseThrow();
-
-        Product product_kardex_1 = productRepo.findById(1L).orElseThrow();
-        Product product_kardex_2 = productRepo.findById(2L).orElseThrow();
-        Product product_kardex_3 = productRepo.findById(3L).orElseThrow();
-
-        List<Kardex> kardexes = List.of(
-                new Kardex(null, LocalDate.now(), LocalDate.now(), KARDEX_TRANSACTION.ENTRADA, 23, "Descripcion1",
-                        product_kardex_1.getNameProduct(), supplier_kardex_1, user_kardex_1),
-                new Kardex(null, LocalDate.now(), LocalDate.now(), KARDEX_TRANSACTION.ENTRADA, 23, "Descripcion2",
-                        product_kardex_2.getNameProduct(), supplier_kardex_2, user_kardex_2),
-                new Kardex(null, LocalDate.now(), LocalDate.now(), KARDEX_TRANSACTION.ENTRADA, 23, "Descripcion3",
-                        product_kardex_3.getNameProduct(), supplier_kardex_3, user_kardex_3)
-        );
-        kardexRepo.saveAll(kardexes);
-
+            List<Kardex> kardexes = List.of(
+                    new Kardex(null, LocalDate.now(), LocalDate.now(), KARDEX_TRANSACTION.ENTRADA, 23, "Descripcion1",
+                            product_kardex_1.getNameProduct(), supplier_kardex_1, user_kardex_1),
+                    new Kardex(null, LocalDate.now(), LocalDate.now(), KARDEX_TRANSACTION.ENTRADA, 23, "Descripcion2",
+                            product_kardex_2.getNameProduct(), supplier_kardex_2, user_kardex_2),
+                    new Kardex(null, LocalDate.now(), LocalDate.now(), KARDEX_TRANSACTION.ENTRADA, 23, "Descripcion3",
+                            product_kardex_3.getNameProduct(), supplier_kardex_3, user_kardex_3)
+            );
+            kardexRepo.saveAll(kardexes);
+        }
     }
 }
